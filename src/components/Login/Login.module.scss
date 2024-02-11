@@ -1,0 +1,31 @@
+.login {
+  color: white;
+  .netflix-bg-img {
+    img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+  &__form {
+    background: rgba(0, 0, 0, 0.693);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    input {
+      background-color: transparent;
+      border: 1px solid white;
+      border-radius: 3px;
+    }
+    b {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__submit {
+    background: rgb(229, 9, 20);
+  }
+}

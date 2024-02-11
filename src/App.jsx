@@ -1,10 +1,9 @@
 import './App.css';
+import Body from './components/Body/Body';
 
 function App() {
   return (
-    <div className='text-3xl shadow-md'>
-      Hello Huzefa
-    </div>
+    <Body />
   );
 }
 

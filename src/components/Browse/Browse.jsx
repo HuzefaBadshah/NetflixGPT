@@ -1,8 +1,14 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
+import Header from '../Header/Header';
 
 const Browse = () => {
+    const user = useSelector((store) => store.user);
     return (
-        <div>Browse</div>
+        <div>
+            <Header />
+            <img src={user?.photoURL || ''} />
+        </div>
     )
 }
 

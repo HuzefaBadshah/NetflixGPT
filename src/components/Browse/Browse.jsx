@@ -1,13 +1,16 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
 import Header from '../Header/Header';
+import useNowPlayingMovies from '../../hooks/useNowPlayingMovies';
+import MainContainer from '../MainContainer/MainContainer';
 
 const Browse = () => {
-    const user = useSelector((store) => store.user);
+
+    useNowPlayingMovies();
+
     return (
         <div>
             <Header />
-            <img src={user?.photoURL || ''} />
+            <MainContainer />
         </div>
     )
 }

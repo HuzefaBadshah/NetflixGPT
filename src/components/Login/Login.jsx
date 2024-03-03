@@ -7,6 +7,7 @@ import { auth } from '../../utils/firebase.config';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../../redux/slice/userSlice';
+import { userImage } from '../../utils/constants';
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -36,7 +37,7 @@ const Login = () => {
                 .then((userCredential) => {
                     // Signed up 
                     updateProfile(auth.currentUser, {
-                        displayName: name.current.value, photoURL: "	https://www.shutterstock.com/image-photo/side-view-portrait-little-boy-260nw-1949656519.jpg"
+                        displayName: name.current.value, photoURL: userImage
                     }).then(() => {
                         // Profile updated!
                         const { uid, displayName, email, photoURL } = auth.currentUser;
@@ -59,8 +60,8 @@ const Login = () => {
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
                     // Signed in 
-                    const { uid, displayName, email, photoURL } = userCredential.user;
-                    dispatch(addUser({ uid, displayName, email, photoURL }));
+                    // const { uid, displayName, email, photoURL } = userCredential.user;
+                    // dispatch(addUser({ uid, displayName, email, photoURL }));
                     setError(null);
                     navigate("/browse");
                     console.log('user: ', userCredential.user);

@@ -6,13 +6,19 @@ import { useNavigate } from 'react-router-dom';
 import styles from './Header.module.scss';
 import { addUser, removeUser } from '../../redux/slice/userSlice';
 import { netflixLogo } from '../../utils/constants';
+import { toggleGptSearchView } from '../../redux/slice/GPTSlice';
 
 const Header = () => {
     const user = useSelector((store) => store.user);
+    const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     // console.log('user in header: ', user);
+
+    function handleGptSearchClick() {
+        dispatch(toggleGptSearchView());
+    }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -46,6 +52,12 @@ const Header = () => {
             <img className='w-44' src={netflixLogo} alt="Netflix logo" />
 
             {user ? <div className={`${styles['sign-out-container']} ml-auto text-end mr-3`}>
+                <button
+                    className="py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg"
+                    onClick={handleGptSearchClick}
+                >
+                    {showGptSearch ? "Homepage" : "GPT Search"}
+                </button>
                 <img src={user?.photoURL || ''} className='mr-2' />
                 <button className={`${styles['sign-out']}  p-1 h-10 bg-red-600`} onClick={handleSignOut}>Sign out</button>
             </div> : <button className='ml-auto p-2'>Sign In</button>}

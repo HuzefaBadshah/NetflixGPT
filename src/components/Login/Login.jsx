@@ -7,7 +7,7 @@ import { auth } from '../../utils/firebase.config';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../../redux/slice/userSlice';
-import { userImage } from '../../utils/constants';
+import { BG_URL, userImage } from '../../utils/constants';
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -80,7 +80,7 @@ const Login = () => {
         <div className={`${styles.login}`}>
             <Header />
             <div className={`${styles["netflix-bg-img"]} absolute`}>
-                <img src="https://assets.nflxext.com/ffe/siteui/vlv3/5e16108c-fd30-46de-9bb8-0b4e1bbbc509/29d8d7d7-83cc-4b5f-aa9b-6fd4f68bfaa6/IN-en-20240205-popsignuptwoweeks-perspective_alpha_website_medium.jpg" alt="Netflix background image" />
+                <img src={BG_URL} alt="Netflix background image" />
             </div>
             <form className={`absolute ${styles['login__form']} flex flex-col p-12`}>
                 <h2>{!isSignin ? 'Sign In' : 'Sign Up'}</h2>

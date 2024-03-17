@@ -18,6 +18,7 @@ function useMovieTrailer(movieId) {
     }
 
     useEffect(() => {
+        // an exapmle of memoization
         !trailerVideo && fetchMovieVideos();
     }, []);
 

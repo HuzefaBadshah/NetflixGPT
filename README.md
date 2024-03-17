@@ -45,3 +45,6 @@
 > ### React Arrow Function Component Export (rafce)
 > - This shortcut creates react component.
 > - To use this you need to install extension **ES7+ React/Redux/React-Native snippets**
+
+### Access live website with below URL:
+- [Netflix Clone](netflixgpt-7bf8e.firebaseapp.com)
